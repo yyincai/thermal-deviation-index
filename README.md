@@ -2,8 +2,8 @@
 
 Code accompanying the Scientific Data Data Descriptor: *"A global gridded dataset of the Thermal Deviation Index derived from ERA5 hourly temperature (1940–2024)"*.
 
-**Dataset DOI**: https://doi.org/XXXXX (figshare / Zenodo)  
-**Code DOI**: https://doi.org/XXXXX (Zenodo)  
+**Dataset DOI**: https://doi.org/10.6084/m9.figshare.33012002 (figshare)  
+**Code DOI**: https://doi.org/10.6084/m9.figshare.33012194 (figshare)  
 **License**: CC BY 4.0
 
 ## Contents
@@ -55,11 +55,11 @@ numpy, scipy, pandas, matplotlib, openpyxl
 
 If you use this code, please cite:
 
-> Cai, Y. (2026). TDI-thermal-deviation-index: code accompanying the TDI dataset (v1.0.0). *Zenodo*. https://doi.org/XXXXX
+> Cai, Y. (2026). TDI thermal deviation index — code v1.0.0. *figshare*. https://doi.org/10.6084/m9.figshare.33012194
 
 If you use the TDI dataset, please cite:
 
-> Cai, Y. (2026). Global Thermal Deviation Index (TDI) Dataset 1940–2024. *figshare*. https://doi.org/XXXXX
+> Cai, Y. (2026). Global Thermal Deviation Index (TDI) Dataset 1940–2024. *figshare*. https://doi.org/10.6084/m9.figshare.33012002
 
 ## License
 
