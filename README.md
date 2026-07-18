@@ -1,6 +1,6 @@
 # TDI Thermal Deviation Index — Code Repository
 
-Code accompanying the Scientific Data Data Descriptor: *"A global gridded dataset of the Thermal Deviation Index derived from ERA5 hourly temperature (1940–2024)"*.
+Code accompanying the Scientific Data Data Descriptor: *"Thermal Deviation Index dataset derived from ERA5 hourly temperature, 1940–2024"*.
 
 **Dataset DOI**: https://doi.org/10.6084/m9.figshare.33012002 (figshare)  
 **Code DOI**: https://doi.org/10.6084/m9.figshare.33012194 (figshare)  
@@ -11,8 +11,10 @@ Code accompanying the Scientific Data Data Descriptor: *"A global gridded datase
 | File | Purpose |
 |------|---------|
 | `tdi_formula.py` | Core TDI function, parameter derivation, boundary-condition verification |
-| `fig1_global_divergence.py` | Generates Figure 1: global temperature–TDI divergence (1940–2024) |
-| `fig2_case_study_cities.py` | Generates Figure 2: hourly temperature–TDI distributions for case-study cities |
+| `fig1_tdi_curve.py` | Figure 1: TDI function curve with anchor points and thermal zones |
+| `fig2_case_study_cities.py` | Figure 2: hourly temperature–TDI distributions for two case-study cities (2024) |
+| `fig3_global_divergence.py` | Figure 3: global temperature–TDI divergence trends (1940–2024) |
+| `fig4_tdi_7panels.py` | Figure 4: long-term evolution of annual cumulative TDI distributions (7 panels) |
 | `requirements.txt` | Python dependencies |
 
 ## Quick Start
@@ -27,17 +29,17 @@ pip install -r requirements.txt
 python tdi_formula.py
 ```
 
-Expected output verifies all four boundary conditions: TDI(22.5) = 0, TDI'(22.5) = 0, TDI(0) = 1, TDI(36.5) = 1.
+Expected output verifies all boundary conditions: TDI(22.5) = 0, TDI'(22.5) = 0, TDI(0) = 1, TDI(36.5) = 1.
 
-### Regenerate Figure 1 (global divergence)
+### Figure 1 — TDI function curve
 
-Requires intermediate analysis data files (`five_year_moving_average_results.csv`, `daily_statistics_with_differences.csv`).
+No external data required. Output: `tdi_function_curve.png` (140 × 90 mm, 600 dpi).
 
 ```bash
-python fig1_global_divergence.py /path/to/data/ fig1_output.png
+python fig1_tdi_curve.py [output_path]
 ```
 
-### Regenerate Figure 2 (case-study cities)
+### Figure 2 — Case-study cities
 
 Requires `case_points.xlsx` source file.
 
@@ -45,11 +47,31 @@ Requires `case_points.xlsx` source file.
 python fig2_case_study_cities.py case_points.xlsx fig2_output.png
 ```
 
+### Figure 3 — Global divergence trends
+
+Requires intermediate analysis data files (`five_year_moving_average_results.csv`, `daily_statistics_with_differences.csv`).
+
+```bash
+python fig3_global_divergence.py /path/to/data/ fig3_output.png
+```
+
+### Figure 4 — Annual cumulative TDI distributions (7 panels)
+
+Requires `grid_annual_tdi_cumulative_1940_2024.csv` from the TDI dataset (figshare DOI: 10.6084/m9.figshare.33012002). The script uniformly samples ~100,000 grid cells for efficient kernel density estimation.
+
+```bash
+python fig4_tdi_7panels.py /path/to/grid_annual_tdi_cumulative_1940_2024.csv [output_path]
+```
+
 ## Dependencies
+
+Python 3.11+ with:
 
 ```
 numpy, scipy, pandas, matplotlib, openpyxl
 ```
+
+See `requirements.txt` for minimum version constraints.
 
 ## Citation
 
